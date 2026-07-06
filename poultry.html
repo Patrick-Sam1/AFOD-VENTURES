@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poultry - AFOD VENTURES</title>
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="./images/logo image.jpg">
+  <style>
+    /* ----- POULTRY PAGE SPECIFIC STYLES ----- */
+
+    /* Poultry Hero */
+    .poultry-hero {
+      background: linear-gradient(135deg, #1e4b4a 0%, #2a5f5e 100%);
+      color: #fff;
+      padding: 80px 0 60px;
+      border-radius: 0 0 40px 40px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .poultry-hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .poultry-hero h1 span {
+      color: #d9b382;
+    }
+    .poultry-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Poultry Grid */
+    .poultry-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 30px 0;
+    }
+    .poultry-card {
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #eae5db;
+      transition: 0.25s;
+    }
+    .poultry-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+      border-color: #b68a5c;
+    }
+    .poultry-card .poultry-image {
+      height: 220px;
+      overflow: hidden;
+      background: #d9d2c5;
+    }
+    .poultry-card .poultry-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+    .poultry-card:hover .poultry-image img {
+      transform: scale(1.03);
+    }
+    .poultry-card .poultry-content {
+      padding: 28px 30px 32px;
+    }
+    .poultry-card .poultry-content h2 {
+      font-size: 1.8rem;
+      color: #0f3b3a;
+      margin-bottom: 8px;
+    }
+    .poultry-card .poultry-content h2 i {
+      color: #b68a5c;
+      margin-right: 8px;
+    }
+    .poultry-card .poultry-content .poultry-intro {
+      color: #3b5553;
+      font-size: 1rem;
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+    .poultry-card .poultry-content .poultry-section {
+      margin-top: 14px;
+    }
+    .poultry-card .poultry-content .poultry-section h4 {
+      color: #0f3b3a;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .poultry-card .poultry-content .poultry-section h4 i {
+      color: #b68a5c;
+      font-size: 0.9rem;
+    }
+    .poultry-card .poultry-content .poultry-section p {
+      color: #4d6360;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      padding-left: 28px;
+    }
+    .poultry-card .poultry-content .poultry-section ul {
+      list-style: none;
+      padding: 0 0 0 28px;
+    }
+    .poultry-card .poultry-content .poultry-section ul li {
+      padding: 3px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #4d6360;
+      font-size: 0.95rem;
+    }
+    .poultry-card .poultry-content .poultry-section ul li i {
+      color: #b68a5c;
+      font-size: 0.7rem;
+      margin-top: 6px;
+    }
+
+    /* Quick Comparison Table */
+    .comparison-section {
+      margin: 40px 0;
+      background: #fff;
+      border-radius: 24px;
+      padding: 30px;
+      border: 1px solid #eae5db;
+      overflow-x: auto;
+    }
+    .comparison-section h2 {
+      color: #0f3b3a;
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+      border-left: 8px solid #b68a5c;
+      padding-left: 16px;
+    }
+    .comparison-section table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      min-width: 700px;
+    }
+    .comparison-section table th {
+      background: #0f3b3a;
+      color: #fff;
+      padding: 12px 14px;
+      text-align: left;
+    }
+    .comparison-section table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #eae5db;
+      color: #3b5553;
+    }
+    .comparison-section table tr:nth-child(even) {
+      background: #f9f7f2;
+    }
+    .comparison-section table tr:hover {
+      background: #f0ece4;
+    }
+
+    /* CTA Section */
+    .poultry-cta {
+      padding: 50px 0 60px;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, #0f3b3a 0%, #1a524f 100%);
+      color: #fff;
+      border-radius: 40px;
+      padding: 50px 40px;
+      text-align: center;
+    }
+    .cta-box h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .cta-box p {
+      opacity: 0.9;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+    .cta-box .btn-primary {
+      background: #d9b382;
+      color: #0f3b3a;
+    }
+    .cta-box .btn-primary:hover {
+      background: #e8c99e;
+    }
+
+    /* ----- DROPDOWN OVERRIDES (nav) ----- */
+    .nav-links .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-links .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #fff;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      padding: 8px 0;
+      z-index: 1000;
+      top: 100%;
+      left: 0;
+      border: 1px solid #eae5db;
+    }
+    .nav-links .dropdown-content a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      color: #2f4544;
+      border-bottom: none;
+      transition: 0.2s;
+    }
+    .nav-links .dropdown-content a:hover {
+      background: #f0ece4;
+      color: #b68a5c;
+      border-bottom: none;
+    }
+    .nav-links .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .nav-links .dropdown > a {
+      cursor: pointer;
+    }
+    .nav-links .dropdown > a i {
+      font-size: 0.7rem;
+      margin-left: 4px;
+    }
+
+    /* ----- RESPONSIVE OVERRIDES ----- */
+    @media (max-width: 900px) {
+      /* Ensure hamburger is visible */
+      .menu-toggle {
+        display: block !important;
+      }
+
+      /* Navigation links - hidden by default, shown when toggled */
+      .nav-links {
+        display: none !important;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 20px 0 10px;
+        border-top: 1px solid #eae5db;
+        margin-top: 16px;
+      }
+      .nav-links.open {
+        display: flex !important;
+      }
+
+      /* Dropdown on mobile - separate arrow click from link click */
+      .nav-links .dropdown {
+        position: relative;
+        width: 100%;
+        text-align: center;
+      }
+      .nav-links .dropdown > a {
+        display: inline-block;
+        padding: 0 4px;
+      }
+      .nav-links .dropdown > a i {
+        display: inline-block;
+        font-size: 0.7rem;
+        margin-left: 4px;
+        cursor: pointer;
+        padding: 4px 8px;
+        transition: transform 0.3s ease;
+      }
+      .nav-links .dropdown.open > a i {
+        transform: rotate(180deg);
+      }
+      .nav-links .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding: 0 0 0 16px;
+        background: transparent;
+        display: none;
+        width: 100%;
+      }
+      .nav-links .dropdown.open .dropdown-content {
+        display: block;
+      }
+      .nav-links .dropdown-content a {
+        color: #2f4544;
+        padding: 6px 0;
+        text-align: center;
+      }
+      .nav-links .dropdown-content a:hover {
+        background: transparent;
+        color: #b68a5c;
+      }
+
+      .poultry-hero h1 {
+        font-size: 2.4rem;
+      }
+      .cta-box h2 {
+        font-size: 1.8rem;
+      }
+      .poultry-card .poultry-content {
+        padding: 22px 20px 26px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .poultry-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .comparison-section table {
+        font-size: 0.8rem;
+        min-width: 560px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .poultry-hero h1 {
+        font-size: 2rem;
+      }
+      .poultry-hero p {
+        font-size: 1rem;
+      }
+      .cta-box {
+        padding: 32px 20px;
+      }
+      .cta-box h2 {
+        font-size: 1.5rem;
+      }
+      .cta-box p {
+        font-size: 0.95rem;
+      }
+      .poultry-card .poultry-content h2 {
+        font-size: 1.5rem;
+      }
+      .poultry-card .poultry-content .poultry-section p,
+      .poultry-card .poultry-content .poultry-section ul li {
+        font-size: 0.9rem;
+        padding-left: 0;
+      }
+      .poultry-card .poultry-content .poultry-section ul {
+        padding-left: 0;
+      }
+      .poultry-card .poultry-image {
+        height: 180px;
+      }
+      .comparison-section {
+        padding: 16px;
+      }
+      .comparison-section table {
+        font-size: 0.72rem;
+        min-width: 420px;
+      }
+      .comparison-section table th,
+      .comparison-section table td {
+        padding: 6px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="contact-info">
+        <span><i class="fas fa-phone-alt"></i> +234 911 0868 557</span>
+        <span><i class="fas fa-envelope"></i> kinfeaina26@gmail.com</span>
+        <span><i class="fas fa-map-marker-alt"></i> 123 Farm Road, Agropolis</span>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="./images/logo_image.jpg" alt="AFOD VENTURES Logo" />
+        <span>AFOD <span class="logo-highlight">VENTURES</span></span>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="nav-links" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <div class="dropdown" id="servicesDropdown">
+          <a href="services.html">Services <i class="fas fa-chevron-down" id="dropdownArrow"></i></a>
+          <div class="dropdown-content">
+            <a href="crop.html">Crops</a>
+            <a href="poultry.html" class="active">Poultry</a>
+          </div>
+        </div>
+        <a href="resources.html">Resources</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <i class="fas fa-search" id="searchIcon"></i>
+        <i class="fas fa-user-circle" id="userIcon"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- POULTRY HERO -->
+  <section class="poultry-hero">
+    <div class="container">
+      <h1>Poultry <span>Rearing Guides</span></h1>
+      <p>Comprehensive step-by-step guides for raising healthy and productive poultry flocks.</p>
+    </div>
+  </section>
+
+  <!-- POULTRY GRID -->
+  <section class="poultry-content">
+    <div class="container">
+      <div class="poultry-grid">
+
+        <!-- 1. BROILERS -->
+        <div class="poultry-card">
+          <div class="poultry-image"><img src="./images/broiler.jpg" alt="Broilers" /></div>
+          <div class="poultry-content">
+            <h2><i class="fas fa-drumstick-bite"></i> Broilers</h2>
+            <p class="poultry-intro">Broilers are raised specifically for meat production. They grow rapidly and require careful management to achieve optimal weight and feed conversion ratios.</p>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Housing &amp; Equipment</h4><p>Provide well-ventilated housing with adequate floor space (0.5-0.8 sq ft per bird). Use deep litter system with clean bedding material. Install feeders, drinkers, brooders, and proper lighting systems.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Chick Sourcing &amp; Rearing</h4><p>Source day-old chicks from reputable hatcheries. Ensure they are healthy, active, and vaccinated. Maintain brooding temperature at 32-35°C for the first week, reducing gradually each week.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Feeding &amp; Nutrition</h4><p>Provide starter feed (23% protein) for the first 4 weeks, then grower feed (20% protein) until 6 weeks, and finisher feed (18% protein) from 6-8 weeks. Ensure clean water is always available.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Vaccination &amp; Health</h4><p>Vaccinate against Newcastle disease and Gumboro disease. Practice strict biosecurity. Monitor for common diseases like coccidiosis, respiratory infections, and bacterial infections.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Marketing &amp; Sales</h4><p>Market birds at 6-8 weeks of age. Identify buyers (supermarkets, restaurants, wholesalers). Process and package properly for quality maintenance.</p></div>
+          </div>
+        </div>
+
+        <!-- 2. LAYERS -->
+        <div class="poultry-card">
+          <div class="poultry-image"><img src="./images/layers.jpg" alt="Layers" /></div>
+          <div class="poultry-content">
+            <h2><i class="fas fa-egg"></i> Layers</h2>
+            <p class="poultry-intro">Layers are raised for egg production. They require specialized management to maximize egg production and quality over their laying cycle.</p>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Housing &amp; Equipment</h4><p>Provide well-designed housing with proper ventilation. Use battery cages or deep litter systems. Install nest boxes, feeders, drinkers, and lighting systems (16 hours of light daily).</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Chick Sourcing &amp; Rearing</h4><p>Source day-old pullet chicks from reputable hatcheries. Rear chicks in separate brooding facilities for 4-5 months before transferring to laying houses.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Feeding &amp; Nutrition</h4><p>Provide starter feed (20-22% protein) for 0-8 weeks, grower feed (16-18% protein) for 8-18 weeks, and layer mash (16-18% protein) from 18 weeks onwards. Supplement with calcium and oyster shells.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Vaccination &amp; Health</h4><p>Vaccinate against Newcastle, Gumboro, Fowl Pox, and other common diseases. Monitor health regularly. Maintain good hygiene and biosecurity.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Egg Production &amp; Collection</h4><p>Collect eggs 2-3 times daily to maintain quality. Store eggs at 10-15°C. Grade and package eggs for market. Monitor egg production and quality regularly.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Marketing &amp; Sales</h4><p>Market eggs to supermarkets, restaurants, bakeries, and local markets. Establish reliable supply chain and maintain consistent quality.</p></div>
+          </div>
+        </div>
+
+        <!-- 3. LOCAL CHICKENS -->
+        <div class="poultry-card">
+          <div class="poultry-image"><img src="./images/local chickens.jpg" alt="Local Chickens" /></div>
+          <div class="poultry-content">
+            <h2><i class="fas fa-kiwi-bird"></i> Local Chickens</h2>
+            <p class="poultry-intro">Local chickens are hardy birds well-adapted to free-range systems. They have excellent market demand for their meat and eggs.</p>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Housing &amp; Equipment</h4><p>Provide simple, well-ventilated housing that protects from predators and harsh weather. Include perches, nesting boxes, and clean water sources. Allow access to outdoor areas for foraging.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Chick Sourcing &amp; Rearing</h4><p>Source local chicks from community breeders or hatcheries. Allow hens to brood naturally or use brooding equipment. Provide proper care during the chick stage.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Feeding &amp; Nutrition</h4><p>Provide layer mash or grower feed as supplements. Allow birds to forage for insects, seeds, and green matter. Ensure clean water is always available.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Vaccination &amp; Health</h4><p>Vaccinate against Newcastle disease, Gumboro, and Fowl Pox. Monitor for parasites, respiratory issues, and common diseases. Practice good hygiene and biosecurity.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Egg Production &amp; Collection</h4><p>Collect eggs regularly. Local breeds may lay fewer but larger eggs. Maintain clean nesting boxes for optimal egg quality.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Marketing &amp; Sales</h4><p>Local chickens and their products are often in high demand. Market to local communities, restaurants, and traditional markets.</p></div>
+          </div>
+        </div>
+
+        <!-- 4. TURKEYS -->
+        <div class="poultry-card">
+          <div class="poultry-image"><img src="./images/turkey 2.jpg" alt="Turkeys" /></div>
+          <div class="poultry-content">
+            <h2><i class="fas fa-feather-alt"></i> Turkeys</h2>
+            <p class="poultry-intro">Turkeys are large poultry birds with high meat value. They require specialized management and are popular during festive seasons.</p>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Housing &amp; Equipment</h4><p>Provide spacious, well-ventilated housing (2-3 sq ft per bird). Include strong perches and sturdy feeders. Protect from predators and harsh weather conditions.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Chick Sourcing &amp; Rearing</h4><p>Source day-old poults from reputable hatcheries. Maintain brooding temperature at 35-38°C for the first week. Handle carefully as poults are more sensitive than chicks.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Feeding &amp; Nutrition</h4><p>Provide starter feed (28% protein) for 0-4 weeks, grower feed (22% protein) for 4-12 weeks, and finisher feed (16-18% protein) from 12 weeks onwards. Ensure clean water is always available.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Vaccination &amp; Health</h4><p>Vaccinate against Newcastle, Fowl Pox, and Blackhead disease. Monitor for respiratory issues and parasites. Practice strict biosecurity and good hygiene.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Marketing &amp; Sales</h4><p>Market turkeys during festive seasons (Christmas, Easter, Thanksgiving). Target restaurants, hotels, and direct consumers.</p></div>
+          </div>
+        </div>
+
+        <!-- 5. DUCKS -->
+        <div class="poultry-card">
+          <div class="poultry-image"><img src="./images/duck.jpg" alt="Ducks" /></div>
+          <div class="poultry-content">
+            <h2><i class="fas fa-water"></i> Ducks</h2>
+            <p class="poultry-intro">Ducks are waterfowl that can be raised for both meat and eggs. They are hardy birds that thrive in wet environments.</p>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Housing &amp; Equipment</h4><p>Provide well-ventilated housing with access to water (pond, trough, or sprinkler). Include sturdy feeders and drinkers. Ducks do not require perches but need clean, dry bedding.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Chick Sourcing &amp; Rearing</h4><p>Source day-old ducklings from reputable breeders. Maintain brooding temperature at 32-35°C for the first week. Provide access to shallow water for drinking and swimming.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Feeding &amp; Nutrition</h4><p>Provide starter feed (22% protein) for 0-4 weeks, grower feed (18% protein) for 4-12 weeks, and layer feed (16-18% protein) for laying ducks. Ensure clean water is always available.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Vaccination &amp; Health</h4><p>Vaccinate against Duck Plague, Duck Hepatitis, and other common diseases. Monitor for parasites, respiratory issues, and infections. Practice good hygiene.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Egg Production &amp; Collection</h4><p>Ducks typically lay eggs at night. Collect eggs early morning. Ducks eggs have rich flavor and are in high demand for baking and culinary uses.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Marketing &amp; Sales</h4><p>Market ducks and duck eggs to restaurants, hotels, and local markets. Duck meat is popular in many cuisines.</p></div>
+          </div>
+        </div>
+
+        <!-- 6. GUINEA FOWL -->
+        <div class="poultry-card">
+          <div class="poultry-image"><img src="./images/guinea-fowl.jpg" alt="Guinea Fowl" /></div>
+          <div class="poultry-content">
+            <h2><i class="fas fa-feather"></i> Guinea Fowl</h2>
+            <p class="poultry-intro">Guinea fowl are hardy birds valued for their gamey meat and pest control abilities. They are excellent free-range birds with strong survival instincts.</p>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Housing &amp; Equipment</h4><p>Provide secure housing to protect from predators. Include roosting perches and nesting boxes. Guinea fowl prefer roosting high. Access to outdoor ranging areas is essential.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Chick Sourcing &amp; Rearing</h4><p>Source keets from reputable breeders. Maintain brooding temperature at 32-35°C for the first week. Keets are more sensitive than chicks and require careful handling.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Feeding &amp; Nutrition</h4><p>Provide starter feed (24% protein) for 0-4 weeks, grower feed (18-20% protein) from 4 weeks onwards. Allow foraging for insects and seeds. Ensure clean water is always available.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Vaccination &amp; Health</h4><p>Vaccinate against Newcastle disease and Gumboro. Monitor for respiratory issues and parasites. Guinea fowl are generally hardy with strong natural immunity.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Egg Production &amp; Collection</h4><p>Guinea fowl lay eggs seasonally. Collect eggs regularly as they may hide their nests. Guinea fowl eggs have rich flavor and are prized in gourmet markets.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Marketing &amp; Sales</h4><p>Market guinea fowl and their eggs to restaurants, specialty markets, and local consumers. They are valued for their gamey meat and organic feeding.</p></div>
+          </div>
+        </div>
+
+        <!-- 7. GEESE -->
+        <div class="poultry-card">
+          <div class="poultry-image"><img src="./images/geese.jpg" alt="Geese" /></div>
+          <div class="poultry-content">
+            <h2><i class="fas fa-feather-alt"></i> Geese</h2>
+            <p class="poultry-intro">Geese are large waterfowl raised for meat, eggs, and as guard animals. They are hardy, efficient grazers, and have strong protective instincts.</p>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Housing &amp; Equipment</h4><p>Provide spacious housing with access to pasture and water. Geese are excellent grazers and require outdoor access. Include secure fencing to protect from predators.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Chick Sourcing &amp; Rearing</h4><p>Source day-old goslings from reputable breeders. Maintain brooding temperature at 32-35°C for the first week. Goslings grow rapidly and require high-quality feed.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Feeding &amp; Nutrition</h4><p>Provide starter feed (20-22% protein) for 0-4 weeks, grower feed (16-18% protein) from 4 weeks onwards. Allow grazing on grass and vegetation. Ensure clean water is always available.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Vaccination &amp; Health</h4><p>Vaccinate against common poultry diseases. Monitor for parasites, respiratory issues, and infections. Geese are generally hardy but require good management.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Egg Production &amp; Collection</h4><p>Geese lay eggs seasonally (typically spring). Collect eggs daily. Goose eggs are larger than chicken eggs and are prized for baking.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Marketing &amp; Sales</h4><p>Market geese and goose eggs to restaurants, specialty markets, and local consumers. Goose meat is considered a delicacy in many cultures.</p></div>
+          </div>
+        </div>
+
+        <!-- 8. QUAIL -->
+        <div class="poultry-card">
+          <div class="poultry-image"><img src="./images/quail.jpg" alt="Quail" /></div>
+          <div class="poultry-content">
+            <h2><i class="fas fa-egg"></i> Quail</h2>
+            <p class="poultry-intro">Quail are small birds raised for their meat and nutritious eggs. They have fast growth rates and high egg production, making them a profitable venture.</p>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Housing &amp; Equipment</h4><p>Provide well-ventilated housing with adequate space (0.5-0.75 sq ft per bird). Use wire cages or deep litter systems. Install feeders, drinkers, and proper lighting.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Chick Sourcing &amp; Rearing</h4><p>Source day-old quail chicks from reputable breeders. Maintain brooding temperature at 35-37°C for the first week. Quail chicks are small and require careful handling.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Feeding &amp; Nutrition</h4><p>Provide starter feed (24-26% protein) for 0-4 weeks, grower feed (20-22% protein) from 4-6 weeks, and layer feed (18-20% protein) for laying quail. Ensure clean water is always available.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Vaccination &amp; Health</h4><p>Monitor for common diseases. Quail are generally hardy but susceptible to respiratory issues. Maintain good hygiene and biosecurity.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Egg Production &amp; Collection</h4><p>Quail begin laying at 6-7 weeks. Collect eggs daily. Quail eggs are highly nutritious and have growing market demand.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Marketing &amp; Sales</h4><p>Market quail meat and eggs to restaurants, health food stores, and local markets. Quail products are considered gourmet and have high value.</p></div>
+          </div>
+        </div>
+
+        <!-- 9. PIGEONS (SQUAB) -->
+        <div class="poultry-card">
+          <div class="poultry-image"><img src="./images/pigeon.jpg" alt="Pigeons" /></div>
+          <div class="poultry-content">
+            <h2><i class="fas fa-dove"></i> Pigeons (Squab)</h2>
+            <p class="poultry-intro">Pigeons are raised for squab meat, which is considered a delicacy. They are low-maintenance birds that can be profitable in specialty markets.</p>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Housing &amp; Equipment</h4><p>Provide well-ventilated pigeon lofts with nesting boxes and perches. Pigeons are social birds and thrive in colonies. Include feeders and drinkers.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Chick Sourcing &amp; Rearing</h4><p>Source healthy breeding pairs from reputable breeders. Pigeons breed readily and rear their young (squabs) naturally. Provide proper care during the breeding season.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Feeding &amp; Nutrition</h4><p>Provide a balanced diet of grains (corn, wheat, sorghum, millet). Supplement with calcium and minerals. Ensure clean water is always available.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Vaccination &amp; Health</h4><p>Monitor for respiratory infections, parasites, and Salmonella. Maintain good hygiene and biosecurity. Pigeons are generally hardy with proper care.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Marketing &amp; Sales</h4><p>Market squab meat to restaurants and specialty markets. Squab is considered a delicacy and commands premium prices.</p></div>
+          </div>
+        </div>
+
+        <!-- 10. PEAFOWL -->
+        <div class="poultry-card">
+          <div class="poultry-image"><img src="./images/peafowl.jpg" alt="Peafowl" /></div>
+          <div class="poultry-content">
+            <h2><i class="fas fa-feather-alt"></i> Peafowl</h2>
+            <p class="poultry-intro">Peafowl are ornamental birds valued for their beauty, feathers, and meat. They can be a niche market for specialty farms and conservation efforts.</p>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Housing &amp; Equipment</h4><p>Provide spacious, secure housing with roosting perches. Peafowl need protection from predators and harsh weather. Include access to outdoor ranging areas.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Chick Sourcing &amp; Rearing</h4><p>Source peachicks from reputable breeders. Maintain brooding temperature at 35-37°C for the first week. Peachicks are sensitive and require careful handling.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Feeding &amp; Nutrition</h4><p>Provide starter feed (20-24% protein) for the first 8 weeks, grower feed (16-18% protein) from 8 weeks onwards. Allow foraging and supplement with grains and greens.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Vaccination &amp; Health</h4><p>Vaccinate against Newcastle disease and other common diseases. Monitor for parasites and respiratory issues. Practice good hygiene and biosecurity.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Marketing &amp; Sales</h4><p>Market peafowl to zoos, conservation centers, ornamental farms, and specialty buyers. Peafowl feathers and meat have niche markets.</p></div>
+          </div>
+        </div>
+
+        <!-- 11. OSTRICH -->
+        <div class="poultry-card">
+          <div class="poultry-image"><img src="./images/ostrich.jpg" alt="Ostrich" /></div>
+          <div class="poultry-content">
+            <h2><i class="fas fa-feather"></i> Ostrich</h2>
+            <p class="poultry-intro">Ostriches are large flightless birds raised for meat, feathers, and leather. They are a niche livestock venture with high-value products.</p>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Housing &amp; Equipment</h4><p>Provide spacious, secure housing with large outdoor areas. Ostriches require 0.5-1 acre per breeding pair. Install strong fencing for predator protection.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Chick Sourcing &amp; Rearing</h4><p>Source day-old ostrich chicks from reputable breeders. Maintain brooding temperature at 30-35°C for the first week. Ostriches require specialized care and housing.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Feeding &amp; Nutrition</h4><p>Provide starter feed (20-22% protein) for 0-3 months, grower feed (16-18% protein) from 3-12 months, and maintenance feed (12-14% protein) for adults. Ensure clean water is always available.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Vaccination &amp; Health</h4><p>Monitor for respiratory issues, parasites, and digestive problems. Ostriches are susceptible to certain diseases. Maintain strict biosecurity.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Marketing &amp; Sales</h4><p>Market ostrich meat, leather, and feathers to specialty buyers. Ostrich products have high value in luxury markets.</p></div>
+          </div>
+        </div>
+
+        <!-- 12. PHEASANTS -->
+        <div class="poultry-card">
+          <div class="poultry-image"><img src="./images/pheasant.jpg" alt="Pheasants" /></div>
+          <div class="poultry-content">
+            <h2><i class="fas fa-feather-alt"></i> Pheasants</h2>
+            <p class="poultry-intro">Pheasants are game birds raised for meat, hunting, and ornamental purposes. They have niche markets and can be profitable with proper management.</p>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Housing &amp; Equipment</h4><p>Provide secure housing with covered runs to prevent escape. Include perches, nesting areas, and protection from predators. Pheasants need outdoor ranging areas.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Chick Sourcing &amp; Rearing</h4><p>Source day-old pheasant chicks from reputable breeders. Maintain brooding temperature at 35-37°C for the first week. Pheasant chicks are sensitive and require careful handling.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Feeding &amp; Nutrition</h4><p>Provide starter feed (24-26% protein) for 0-4 weeks, grower feed (18-20% protein) from 4-12 weeks, and maintenance feed (14-16% protein) for adults. Allow foraging.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Vaccination &amp; Health</h4><p>Vaccinate against common poultry diseases. Monitor for respiratory issues, parasites, and infections. Maintain good hygiene and biosecurity.</p></div>
+            <div class="poultry-section"><h4><i class="fas fa-circle"></i> Marketing &amp; Sales</h4><p>Market pheasant meat, feathers, and live birds to restaurants, hunting clubs, and specialty buyers. Pheasant is considered a game delicacy.</p></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- QUICK COMPARISON TABLE -->
+      <div class="comparison-section">
+        <h2><i class="fas fa-table"></i> Quick Poultry Comparison</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Poultry Type</th>
+              <th>Primary Product</th>
+              <th>Growth Period</th>
+              <th>Housing Space (sq ft/bird)</th>
+              <th>Feed Protein (%)</th>
+              <th>Special Needs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Broilers</strong></td><td>Meat</td><td>6-8 weeks</td><td>0.5-0.8</td><td>18-23</td><td>Temperature control</td></tr>
+            <tr><td><strong>Layers</strong></td><td>Eggs</td><td>18-24 weeks (to lay)</td><td>1.0-1.5</td><td>16-20</td><td>Lighting management</td></tr>
+            <tr><td><strong>Local Chickens</strong></td><td>Meat &amp; Eggs</td><td>16-24 weeks</td><td>1.5-2.0</td><td>16-18</td><td>Free-range access</td></tr>
+            <tr><td><strong>Turkeys</strong></td><td>Meat</td><td>16-24 weeks</td><td>2.0-3.0</td><td>16-28</td><td>More space, perches</td></tr>
+            <tr><td><strong>Ducks</strong></td><td>Meat &amp; Eggs</td><td>8-12 weeks</td><td>1.0-1.5</td><td>16-22</td><td>Water access</td></tr>
+            <tr><td><strong>Guinea Fowl</strong></td><td>Meat &amp; Eggs</td><td>14-20 weeks</td><td>1.5-2.0</td><td>18-24</td><td>Roosting perches</td></tr>
+            <tr><td><strong>Geese</strong></td><td>Meat, Eggs</td><td>12-16 weeks</td><td>2.0-3.0</td><td>16-22</td><td>Pasture access</td></tr>
+            <tr><td><strong>Quail</strong></td><td>Meat &amp; Eggs</td><td>6-8 weeks</td><td>0.5-0.75</td><td>18-26</td><td>Small space</td></tr>
+            <tr><td><strong>Pigeons</strong></td><td>Meat (Squab)</td><td>4-6 weeks (squab)</td><td>1.0-1.5</td><td>12-16</td><td>Breeding pairs</td></tr>
+            <tr><td><strong>Peafowl</strong></td><td>Ornamental</td><td>2-3 years (mature)</td><td>3.0-5.0</td><td>16-24</td><td>Large space</td></tr>
+            <tr><td><strong>Ostrich</strong></td><td>Meat, Leather</td><td>12-14 months</td><td>0.5 acre/pair</td><td>12-22</td><td>Large space</td></tr>
+            <tr><td><strong>Pheasants</strong></td><td>Meat, Game</td><td>16-20 weeks</td><td>1.5-2.5</td><td>14-26</td><td>Game bird care</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="poultry-cta">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Ready to Start Poultry Farming?</h2>
+        <p>
+          Whether you're raising broilers, layers, turkeys, ducks, or other poultry, AFOD VENTURES is here to provide the expertise and practical support you need to build a successful poultry enterprise. Reach out to our team to discuss your poultry goals and discover how we can help you succeed.
+        </p>
+        <a href="contact.html" class="btn-primary">Contact Us Today <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <img src="./images/logo_image.jpg" alt="AFOD VENTURES Logo" />
+            <span>AFOD <small>VENTURES</small></span>
+          </div>
+          <p style="color: #bccbc4; font-size: 0.9rem;">Growing Knowledge, Growing Agriculture.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Agricultural Services</a>
+          <a href="resources.html">Resources</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div>
+          <h4>Learning</h4>
+          <a href="crop.html">Crop Farming</a>
+          <a href="poultry.html">Poultry</a>
+          <a href="resources.html">Resources</a>
+          <a href="contact.html">For Enquiry</a>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AFOD VENTURES. Built for modern farmers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ----- HAMBURGER MENU TOGGLE -----
+    document.querySelector('.menu-toggle')?.addEventListener('click', function() {
+      const nav = document.getElementById('mainNav');
+      nav.classList.toggle('open');
+    });
+
+    // ----- MOBILE DROPDOWN TOGGLE (click on arrow toggles open/close) -----
+    const dropdownArrow = document.getElementById('dropdownArrow');
+    const servicesDropdown = document.getElementById('servicesDropdown');
+
+    if (dropdownArrow) {
+      dropdownArrow.addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        // Only toggle on mobile
+        if (window.innerWidth <= 900) {
+          servicesDropdown.classList.toggle('open');
+        }
+      });
+    }
+
+    // ----- SERVICES LINK - navigates to services page -----
+    const servicesLink = document.querySelector('#servicesDropdown > a');
+    if (servicesLink) {
+      servicesLink.addEventListener('click', function(e) {
+        // On mobile, if the dropdown is open, close it and navigate
+        if (window.innerWidth <= 900) {
+          if (servicesDropdown.classList.contains('open')) {
+            servicesDropdown.classList.remove('open');
+          }
+          // Allow navigation to proceed
+          return true;
+        }
+        // On desktop, allow navigation
+        return true;
+      });
+    }
+
+    // ----- CLOSE DROPDOWN WHEN CLICKING OUTSIDE -----
+    document.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900) {
+        const dropdown = document.getElementById('servicesDropdown');
+        const isClickInside = dropdown?.contains(e.target);
+        if (!isClickInside && dropdown) {
+          dropdown.classList.remove('open');
+        }
+      }
+    });
+
+    // ----- SEARCH & USER ICON ALERTS -----
+    document.getElementById('searchIcon')?.addEventListener('click', () => alert('🔍 Search functionality coming soon.'));
+    document.getElementById('userIcon')?.addEventListener('click', () => alert('👤 Member area coming soon.'));
+  </script>
+</body>
+</html>

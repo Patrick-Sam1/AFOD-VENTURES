@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crops - AFOD VENTURES</title>
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="./images/logo image.jpg">
+  <style>
+    /* ----- CROP PAGE SPECIFIC STYLES ----- */
+
+    /* Crop Hero */
+    .crop-hero {
+      background: linear-gradient(135deg, #1e4b4a 0%, #2a5f5e 100%);
+      color: #fff;
+      padding: 80px 0 60px;
+      border-radius: 0 0 40px 40px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .crop-hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .crop-hero h1 span {
+      color: #d9b382;
+    }
+    .crop-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Crop Grid */
+    .crop-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 30px 0;
+    }
+    .crop-card {
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #eae5db;
+      transition: 0.25s;
+    }
+    .crop-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+      border-color: #b68a5c;
+    }
+    .crop-card .crop-image {
+      height: 220px;
+      overflow: hidden;
+      background: #d9d2c5;
+    }
+    .crop-card .crop-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+    .crop-card:hover .crop-image img {
+      transform: scale(1.03);
+    }
+    .crop-card .crop-content {
+      padding: 28px 30px 32px;
+    }
+    .crop-card .crop-content h2 {
+      font-size: 1.8rem;
+      color: #0f3b3a;
+      margin-bottom: 8px;
+    }
+    .crop-card .crop-content h2 i {
+      color: #b68a5c;
+      margin-right: 8px;
+    }
+    .crop-card .crop-content .crop-intro {
+      color: #3b5553;
+      font-size: 1rem;
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+    .crop-card .crop-content .crop-section {
+      margin-top: 14px;
+    }
+    .crop-card .crop-content .crop-section h4 {
+      color: #0f3b3a;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .crop-card .crop-content .crop-section h4 i {
+      color: #b68a5c;
+      font-size: 0.9rem;
+    }
+    .crop-card .crop-content .crop-section p {
+      color: #4d6360;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      padding-left: 28px;
+    }
+    .crop-card .crop-content .crop-section ul {
+      list-style: none;
+      padding: 0 0 0 28px;
+    }
+    .crop-card .crop-content .crop-section ul li {
+      padding: 3px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #4d6360;
+      font-size: 0.95rem;
+    }
+    .crop-card .crop-content .crop-section ul li i {
+      color: #b68a5c;
+      font-size: 0.7rem;
+      margin-top: 6px;
+    }
+
+    /* CTA Section */
+    .crop-cta {
+      padding: 50px 0 60px;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, #0f3b3a 0%, #1a524f 100%);
+      color: #fff;
+      border-radius: 40px;
+      padding: 50px 40px;
+      text-align: center;
+    }
+    .cta-box h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .cta-box p {
+      opacity: 0.9;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+    .cta-box .btn-primary {
+      background: #d9b382;
+      color: #0f3b3a;
+    }
+    .cta-box .btn-primary:hover {
+      background: #e8c99e;
+    }
+
+    /* ----- DROPDOWN OVERRIDES (nav) ----- */
+    .nav-links .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-links .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #fff;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      padding: 8px 0;
+      z-index: 1000;
+      top: 100%;
+      left: 0;
+      border: 1px solid #eae5db;
+    }
+    .nav-links .dropdown-content a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      color: #2f4544;
+      border-bottom: none;
+      transition: 0.2s;
+    }
+    .nav-links .dropdown-content a:hover {
+      background: #f0ece4;
+      color: #b68a5c;
+      border-bottom: none;
+    }
+    .nav-links .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .nav-links .dropdown > a {
+      cursor: pointer;
+    }
+    .nav-links .dropdown > a i {
+      font-size: 0.7rem;
+      margin-left: 4px;
+    }
+
+    /* ----- RESPONSIVE OVERRIDES ----- */
+    @media (max-width: 900px) {
+      /* Ensure hamburger is visible */
+      .menu-toggle {
+        display: block !important;
+      }
+
+      /* Navigation links - hidden by default, shown when toggled */
+      .nav-links {
+        display: none !important;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 20px 0 10px;
+        border-top: 1px solid #eae5db;
+        margin-top: 16px;
+      }
+      .nav-links.open {
+        display: flex !important;
+      }
+
+      /* Dropdown on mobile - separate arrow click from link click */
+      .nav-links .dropdown {
+        position: relative;
+        width: 100%;
+        text-align: center;
+      }
+      .nav-links .dropdown > a {
+        display: inline-block;
+        padding: 0 4px;
+      }
+      .nav-links .dropdown > a i {
+        display: inline-block;
+        font-size: 0.7rem;
+        margin-left: 4px;
+        cursor: pointer;
+        padding: 4px 8px;
+        transition: transform 0.3s ease;
+      }
+      .nav-links .dropdown.open > a i {
+        transform: rotate(180deg);
+      }
+      .nav-links .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding: 0 0 0 16px;
+        background: transparent;
+        display: none;
+        width: 100%;
+      }
+      .nav-links .dropdown.open .dropdown-content {
+        display: block;
+      }
+      .nav-links .dropdown-content a {
+        color: #2f4544;
+        padding: 6px 0;
+        text-align: center;
+      }
+      .nav-links .dropdown-content a:hover {
+        background: transparent;
+        color: #b68a5c;
+      }
+
+      .crop-hero h1 {
+        font-size: 2.4rem;
+      }
+      .cta-box h2 {
+        font-size: 1.8rem;
+      }
+      .crop-card .crop-content {
+        padding: 22px 20px 26px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .crop-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .crop-hero h1 {
+        font-size: 2rem;
+      }
+      .crop-hero p {
+        font-size: 1rem;
+      }
+      .cta-box {
+        padding: 32px 20px;
+      }
+      .cta-box h2 {
+        font-size: 1.5rem;
+      }
+      .cta-box p {
+        font-size: 0.95rem;
+      }
+      .crop-card .crop-content h2 {
+        font-size: 1.5rem;
+      }
+      .crop-card .crop-content .crop-section p,
+      .crop-card .crop-content .crop-section ul li {
+        font-size: 0.9rem;
+        padding-left: 0;
+      }
+      .crop-card .crop-content .crop-section ul {
+        padding-left: 0;
+      }
+      .crop-card .crop-image {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="contact-info">
+        <span><i class="fas fa-phone-alt"></i> +234 911 0868 557</span>
+        <span><i class="fas fa-envelope"></i> kinfeaina26@gmail.com</span>
+        <span><i class="fas fa-map-marker-alt"></i> 123 Farm Road, Agropolis</span>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="./images/logo_image.jpg" alt="AFOD VENTURES Logo" />
+        <span>AFOD <span class="logo-highlight">VENTURES</span></span>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="nav-links" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <div class="dropdown" id="servicesDropdown">
+          <a href="services.html">Services <i class="fas fa-chevron-down" id="dropdownArrow"></i></a>
+          <div class="dropdown-content">
+            <a href="crop.html" class="active">Crops</a>
+            <a href="poultry.html">Poultry</a>
+          </div>
+        </div>
+        <a href="resources.html">Resources</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <i class="fas fa-search" id="searchIcon"></i>
+        <i class="fas fa-user-circle" id="userIcon"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- CROP HERO -->
+  <section class="crop-hero">
+    <div class="container">
+      <h1>Crop <span>Planting Guides</span></h1>
+      <p>Comprehensive step-by-step guides for planting and managing your crops successfully.</p>
+    </div>
+  </section>
+
+  <!-- CROP GRID -->
+  <section class="crop-content">
+    <div class="container">
+      <div class="crop-grid">
+
+        <!-- 1. MAIZE -->
+        <div class="crop-card">
+          <div class="crop-image"><img src="./images/planting maize.jpg" alt="Maize" /></div>
+          <div class="crop-content">
+            <h2><i class="fas fa-corn"></i> Maize</h2>
+            <p class="crop-intro">Maize is one of the most important staple crops worldwide. Proper planting techniques ensure high yields and quality grain production.</p>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Land Preparation</h4><p>Start with soil testing to determine nutrient levels and pH. Clear the land of weeds and debris, then plough and harrow to create a fine seedbed. Proper tillage improves root penetration and water infiltration.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Seed Selection &amp; Planting</h4><p>Choose high-yielding, disease-resistant varieties suited to your region. Plant at the right depth (3-5 cm) and spacing (75 cm between rows, 25 cm within rows) for optimal growth. Plant at the onset of the rainy season.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Fertilizer Application</h4><p>Apply NPK 20-10-10 at planting (200-300 kg/ha). Side-dress with nitrogen fertilizer (urea) 4-6 weeks after planting and again at tasseling stage for maximum yield.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Irrigation Management</h4><p>Maize requires about 500-800 mm of water per season. Provide supplemental irrigation during dry spells, especially during flowering and grain filling stages.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Weed &amp; Pest Control</h4><p>Control weeds through timely cultivation and herbicide application. Monitor for pests like armyworms, stalk borers, and fall armyworms. Use integrated pest management strategies.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Harvesting &amp; Post-Harvest</h4><p>Harvest when kernels are dry and moisture content is below 14%. Dry properly, shell, and store in clean, pest-proof containers to prevent losses.</p></div>
+          </div>
+        </div>
+
+        <!-- 2. RICE -->
+        <div class="crop-card">
+          <div class="crop-image"><img src="./images/rice 2.jpg" alt="Rice" /></div>
+          <div class="crop-content">
+            <h2><i class="fas fa-seedling"></i> Rice</h2>
+            <p class="crop-intro">Rice is a staple food for billions. Successful rice cultivation requires careful water management and proper nursery preparation.</p>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Land Preparation</h4><p>Plough and puddle the field to create a level surface. Ensure proper water retention by bunding. A well-prepared field reduces water loss and supports uniform crop establishment.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Seed Selection &amp; Planting</h4><p>Select high-yielding, disease-tolerant varieties. Use the nursery method for transplanting or direct seeding. For transplanting, use 20-25 day old seedlings with 2-3 seedlings per hill at 20x20 cm spacing.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Fertilizer Application</h4><p>Apply NPK 20-10-10 at 200-250 kg/ha at transplanting. Apply nitrogen in split applications: at tillering, panicle initiation, and heading stages.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Irrigation Management</h4><p>Maintain 5-10 cm of standing water during the vegetative stage. Allow field to dry slightly during tillering and flowering. Practice alternate wetting and drying for water conservation.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Weed &amp; Pest Control</h4><p>Control weeds through flooding and manual removal. Monitor for rice blast, leaf blight, and pests like stem borers and leafhoppers. Use resistant varieties and timely pesticide application when needed.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Harvesting &amp; Post-Harvest</h4><p>Harvest when 80-85% of grains are straw-colored and moisture is 20-25%. Thresh, dry to 12-14% moisture, and store in clean, dry conditions to maintain quality.</p></div>
+          </div>
+        </div>
+
+        <!-- 3. CASSAVA -->
+        <div class="crop-card">
+          <div class="crop-image"><img src="./images/cassava.jpg" alt="Cassava" /></div>
+          <div class="crop-content">
+            <h2><i class="fas fa-carrot"></i> Cassava</h2>
+            <p class="crop-intro">Cassava is a drought-tolerant root crop that thrives in tropical conditions. Proper land preparation and planting techniques are key to high yields.</p>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Land Preparation</h4><p>Clear the land thoroughly and plough to a depth of 25-30 cm. Ridging or mounding improves root development and reduces waterlogging. Apply organic manure during land preparation.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Seed Selection &amp; Planting</h4><p>Use healthy, disease-free stem cuttings (25-30 cm long) from mature plants. Plant at 60-75 degree angle, 1 m between rows and 0.8-1 m within rows for optimal growth.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Fertilizer Application</h4><p>Apply NPK 15-15-15 at 200-300 kg/ha at planting. Supplement with organic manure to improve soil structure and nutrient availability for better root development.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Irrigation Management</h4><p>Cassava is drought-tolerant but benefits from irrigation during early establishment. Water during dry spells to ensure good root development and prevent cracking.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Weed &amp; Pest Control</h4><p>Control weeds during the first 3 months. Monitor for cassava mosaic disease, mealybugs, and whiteflies. Use resistant varieties and integrated pest management approaches.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Harvesting &amp; Post-Harvest</h4><p>Harvest 8-12 months after planting when roots are mature. Process immediately or within 48 hours to prevent post-harvest deterioration.</p></div>
+          </div>
+        </div>
+
+        <!-- 4. TOMATOES -->
+        <div class="crop-card">
+          <div class="crop-image"><img src="./images/welcome.jpg" alt="Tomatoes" /></div>
+          <div class="crop-content">
+            <h2><i class="fas fa-apple-alt"></i> Tomatoes</h2>
+            <p class="crop-intro">Tomatoes are high-value crops with excellent market potential. Successful production requires careful nursery management and pest control.</p>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Land Preparation</h4><p>Prepare well-drained, fertile soil with pH 6.0-7.0. Plough and harrow to create a fine tilth. Add organic manure and form raised beds or ridges for better drainage.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Seed Selection &amp; Planting</h4><p>Select high-yielding, disease-resistant varieties. Start seeds in nursery beds or trays. Transplant 4-6 week old seedlings at 60x60 cm spacing for optimum fruit production.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Fertilizer Application</h4><p>Apply NPK 15-15-15 at 300-400 kg/ha at transplanting. Side-dress with nitrogen and potassium during flowering and fruit setting stages for better fruit development.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Irrigation Management</h4><p>Maintain consistent moisture throughout the growing season. Water regularly using drip irrigation to prevent blossom end rot and fruit cracking.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Weed &amp; Pest Control</h4><p>Control weeds with mulching and timely hoeing. Monitor for Tuta absoluta, aphids, and blight. Use IPM strategies including biological control and approved pesticides.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Harvesting &amp; Post-Harvest</h4><p>Harvest at proper maturity stage (breaker stage for marketing). Handle gently to prevent bruising. Sort, grade, and pack in ventilated containers for market.</p></div>
+          </div>
+        </div>
+
+        <!-- 5. YAM -->
+        <div class="crop-card">
+          <div class="crop-image"><img src="./images/yam.jpg" alt="Yam" /></div>
+          <div class="crop-content">
+            <h2><i class="fas fa-seedling"></i> Yam</h2>
+            <p class="crop-intro">Yam is a highly valued tuber crop that requires proper land preparation and care. It thrives in tropical climates with well-drained soils.</p>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Land Preparation</h4><p>Clear the land and make mounds or ridges 1 m apart. Apply organic manure during preparation. Ensure proper drainage to prevent tuber rot and fungal diseases.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Seed Selection &amp; Planting</h4><p>Use healthy, disease-free setts (small tubers or cut pieces). Treat cut surfaces with wood ash to prevent rot. Plant at 1x1 m spacing, 10-15 cm deep with the eye facing upward.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Fertilizer Application</h4><p>Apply NPK 15-15-15 at 200-300 kg/ha at planting. Supplement with organic manure during the growing season for better tuber development.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Irrigation Management</h4><p>Water regularly during the first 3 months. Reduce watering during the dry season as the plant matures. Provide supplemental irrigation during extended dry periods.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Weed &amp; Pest Control</h4><p>Control weeds through regular weeding and mounding. Monitor for yam nematodes, beetles, and fungal diseases. Use crop rotation and resistant varieties.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Harvesting &amp; Post-Harvest</h4><p>Harvest when the leaves turn yellow and die back (8-10 months). Handle carefully to prevent bruising. Store in cool, dry, well-ventilated conditions.</p></div>
+          </div>
+        </div>
+
+        <!-- 6. PEPPER -->
+        <div class="crop-card">
+          <div class="crop-image"><img src="./images/pepper.jpg" alt="Pepper" /></div>
+          <div class="crop-content">
+            <h2><i class="fas fa-pepper-hot"></i> Pepper</h2>
+            <p class="crop-intro">Pepper is a profitable cash crop with high demand. It requires careful nursery management and proper field establishment.</p>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Land Preparation</h4><p>Prepare well-drained, fertile soil with pH 5.5-6.5. Plough and harrow to create a fine seedbed. Add organic manure and form raised beds for better drainage.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Seed Selection &amp; Planting</h4><p>Select high-yielding, disease-resistant varieties. Start seeds in nursery beds or trays. Transplant 4-6 week old seedlings at 50x50 cm spacing for optimum fruit production.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Fertilizer Application</h4><p>Apply NPK 15-15-15 at 200-300 kg/ha at transplanting. Side-dress with nitrogen and potassium during flowering and fruit setting stages for better fruit development.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Irrigation Management</h4><p>Maintain consistent moisture throughout the growing season. Drip irrigation is recommended for optimal growth and fruit quality.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Weed &amp; Pest Control</h4><p>Control weeds with mulching and timely hoeing. Monitor for aphids, thrips, and diseases like bacterial wilt. Use IPM strategies.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Harvesting &amp; Post-Harvest</h4><p>Harvest when fruits reach the desired color and size. Handle gently to prevent bruising. Sort, grade, and pack for market.</p></div>
+          </div>
+        </div>
+
+        <!-- 7. SOYBEANS -->
+        <div class="crop-card">
+          <div class="crop-image"><img src="./images/soybeans.jpg" alt="Soybeans" /></div>
+          <div class="crop-content">
+            <h2><i class="fas fa-seedling"></i> Soybeans</h2>
+            <p class="crop-intro">Soybeans are a valuable legume crop that fixes nitrogen in the soil. Proper planting techniques ensure high yields and quality beans.</p>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Land Preparation</h4><p>Prepare a fine seedbed with proper drainage. Soybeans prefer well-drained, loamy soil with pH 6.0-7.0. Apply lime if soil is too acidic.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Seed Selection &amp; Planting</h4><p>Choose high-yielding, disease-resistant varieties. Plant at 2-3 cm depth with 50 cm between rows and 5-10 cm within rows for optimal growth.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Fertilizer Application</h4><p>Apply NPK 15-15-15 at 150-200 kg/ha at planting. Inoculate seeds with rhizobium bacteria for nitrogen fixation and reduced fertilizer needs.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Irrigation Management</h4><p>Water during the flowering and pod filling stages. Avoid waterlogging as soybeans are sensitive to excess moisture.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Weed &amp; Pest Control</h4><p>Control weeds with timely cultivation and herbicide application. Monitor for aphids, caterpillars, and diseases like rust and bacterial blight.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Harvesting &amp; Post-Harvest</h4><p>Harvest when pods are dry and moisture content is below 14%. Dry, thresh, and store in clean, dry conditions to maintain quality.</p></div>
+          </div>
+        </div>
+
+        <!-- 8. COCOYAM -->
+        <div class="crop-card">
+          <div class="crop-image"><img src="./images/cocoyam.jpg" alt="Cocoyam" /></div>
+          <div class="crop-content">
+            <h2><i class="fas fa-leaf"></i> Cocoyam</h2>
+            <p class="crop-intro">Cocoyam is a nutritious root crop that thrives in tropical conditions. It requires proper land preparation and care for high yields.</p>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Land Preparation</h4><p>Prepare well-drained, fertile soil with plenty of organic matter. Plough and harrow to create a fine seedbed. Form ridges or mounds for better drainage.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Seed Selection &amp; Planting</h4><p>Use healthy, disease-free corms or cormels. Plant at 1x0.5 m spacing with the growing tip facing upward at 5-10 cm depth.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Fertilizer Application</h4><p>Apply NPK 15-15-15 at 200-250 kg/ha at planting. Supplement with organic manure to improve soil structure and nutrient availability.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Irrigation Management</h4><p>Water regularly during the growing season. Reduce watering as the plant matures to prevent tuber rot.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Weed &amp; Pest Control</h4><p>Control weeds with regular weeding and mulching. Monitor for nematodes, aphids, and diseases like root rot. Use resistant varieties.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Harvesting &amp; Post-Harvest</h4><p>Harvest 8-10 months after planting when leaves turn yellow. Handle carefully to prevent bruising. Store in cool, dry conditions.</p></div>
+          </div>
+        </div>
+
+        <!-- 9. GROUNDNUTS -->
+        <div class="crop-card">
+          <div class="crop-image"><img src="./images/groundnut.jpg" alt="Groundnuts" /></div>
+          <div class="crop-content">
+            <h2><i class="fas fa-seedling"></i> Groundnuts</h2>
+            <p class="crop-intro">Groundnuts are valuable oilseeds that also fix nitrogen in the soil. They require well-drained soils and proper management.</p>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Land Preparation</h4><p>Prepare a fine seedbed with proper drainage. Groundnuts prefer well-drained, sandy loam soil with pH 5.5-7.0. Apply lime if soil is too acidic.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Seed Selection &amp; Planting</h4><p>Choose high-yielding, disease-resistant varieties. Plant at 3-5 cm depth with 50 cm between rows and 15 cm within rows for optimal growth.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Fertilizer Application</h4><p>Apply NPK 15-15-15 at 150-200 kg/ha at planting. Supplement with calcium at pegging stage for better pod formation.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Irrigation Management</h4><p>Water during flowering and pegging stages. Avoid overwatering as groundnuts are sensitive to excess moisture.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Weed &amp; Pest Control</h4><p>Control weeds through timely cultivation and herbicide application. Monitor for aphids, thrips, and diseases like leaf spot and rust.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Harvesting &amp; Post-Harvest</h4><p>Harvest when pods are mature and leaves turn yellow. Dry properly, shell, and store in clean, dry conditions to prevent aflatoxin contamination.</p></div>
+          </div>
+        </div>
+
+        <!-- 10. ONIONS -->
+        <div class="crop-card">
+          <div class="crop-image"><img src="./images/onions.jpg" alt="Onions" /></div>
+          <div class="crop-content">
+            <h2><i class="fas fa-seedling"></i> Onions</h2>
+            <p class="crop-intro">Onions are essential vegetables with high market demand. They require careful nursery management and proper field practices.</p>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Land Preparation</h4><p>Prepare well-drained, fertile soil with pH 6.0-7.0. Plough and harrow to create a fine seedbed. Add organic manure and form raised beds for better drainage.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Seed Selection &amp; Planting</h4><p>Select high-yielding, disease-resistant varieties. Start seeds in nursery beds. Transplant 6-8 week old seedlings at 20x15 cm spacing for optimum bulb production.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Fertilizer Application</h4><p>Apply NPK 15-15-15 at 200-250 kg/ha at transplanting. Side-dress with nitrogen and potassium during bulb formation stages.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Irrigation Management</h4><p>Maintain consistent moisture during bulb formation. Reduce watering as the crop matures to prevent bulb rot.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Weed &amp; Pest Control</h4><p>Control weeds with mulching and timely hoeing. Monitor for thrips, onion flies, and diseases like downy mildew and white rot.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Harvesting &amp; Post-Harvest</h4><p>Harvest when leaves fall over and start drying. Dry and cure bulbs before storage. Store in cool, dry, well-ventilated conditions.</p></div>
+          </div>
+        </div>
+
+        <!-- 11. CUCUMBER -->
+        <div class="crop-card">
+          <div class="crop-image"><img src="./images/cucumber.jpg" alt="Cucumber" /></div>
+          <div class="crop-content">
+            <h2><i class="fas fa-seedling"></i> Cucumber</h2>
+            <p class="crop-intro">Cucumbers are fast-growing vegetables with excellent market potential. They require proper trellising and irrigation.</p>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Land Preparation</h4><p>Prepare well-drained, fertile soil with pH 6.0-7.0. Plough and harrow to create a fine seedbed. Add organic manure and form raised beds for better drainage.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Seed Selection &amp; Planting</h4><p>Select high-yielding, disease-resistant varieties. Plant seeds directly at 60x30 cm spacing. Use trellising for better fruit quality and reduced disease.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Fertilizer Application</h4><p>Apply NPK 15-15-15 at 200-250 kg/ha at planting. Side-dress with nitrogen and potassium during flowering and fruit setting stages.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Irrigation Management</h4><p>Maintain consistent moisture for continuous fruit production. Drip irrigation is recommended for optimal growth and fruit quality.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Weed &amp; Pest Control</h4><p>Control weeds with mulching and timely hoeing. Monitor for aphids, cucumber beetles, and diseases like powdery mildew and downy mildew.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Harvesting &amp; Post-Harvest</h4><p>Harvest when fruits reach the desired size. Handle gently to prevent bruising. Sort, grade, and pack for market.</p></div>
+          </div>
+        </div>
+
+        <!-- 12. EGGPLANT -->
+        <div class="crop-card">
+          <div class="crop-image"><img src="./images/eggplant.jpg" alt="Eggplant" /></div>
+          <div class="crop-content">
+            <h2><i class="fas fa-seedling"></i> Eggplant</h2>
+            <p class="crop-intro">Eggplant is a warm-season vegetable with good market demand. It requires proper nursery management and field care.</p>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Land Preparation</h4><p>Prepare well-drained, fertile soil with pH 5.5-6.5. Plough and harrow to create a fine seedbed. Add organic manure and form raised beds for better drainage.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Seed Selection &amp; Planting</h4><p>Select high-yielding, disease-resistant varieties. Start seeds in nursery beds or trays. Transplant 4-6 week old seedlings at 60x60 cm spacing.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Fertilizer Application</h4><p>Apply NPK 15-15-15 at 200-300 kg/ha at transplanting. Side-dress with nitrogen and potassium during flowering and fruit setting stages.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Irrigation Management</h4><p>Maintain consistent moisture throughout the growing season. Drip irrigation is recommended for optimal growth and fruit quality.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Weed &amp; Pest Control</h4><p>Control weeds with mulching and timely hoeing. Monitor for aphids, flea beetles, and diseases like bacterial wilt and verticillium wilt.</p></div>
+            <div class="crop-section"><h4><i class="fas fa-circle"></i> Harvesting &amp; Post-Harvest</h4><p>Harvest when fruits reach the desired size and color. Handle gently to prevent bruising. Sort, grade, and pack for market.</p></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="crop-cta">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Need Expert Farming Advice?</h2>
+        <p>
+        Have questions about crop production or need personalized farming guidance? The team at AFOD VENTURES is here to help you make informed decisions for healthier crops and better harvests. Get in touch with us today and let's grow your farming success together.
+        </p>
+        <a href="contact.html" class="btn-primary">Contact Us Today <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <img src="./images/logo_image.jpg" alt="AFOD VENTURES Logo" />
+            <span>AFOD <small>VENTURES</small></span>
+          </div>
+          <p style="color: #bccbc4; font-size: 0.9rem;">Growing Knowledge, Growing Agriculture.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Agricultural Services</a>
+          <a href="resources.html">Resources</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div>
+          <h4>Learning</h4>
+          <a href="crop.html">Crop Farming</a>
+          <a href="poultry.html">Poultry</a>
+          <a href="resources.html">Resources</a>
+          <a href="contact.html">For Enquiry</a>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AFOD VENTURES. Built for modern farmers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ----- HAMBURGER MENU TOGGLE -----
+    document.querySelector('.menu-toggle')?.addEventListener('click', function() {
+      const nav = document.getElementById('mainNav');
+      nav.classList.toggle('open');
+    });
+
+    // ----- MOBILE DROPDOWN TOGGLE (click on arrow toggles open/close) -----
+    const dropdownArrow = document.getElementById('dropdownArrow');
+    const servicesDropdown = document.getElementById('servicesDropdown');
+
+    if (dropdownArrow) {
+      dropdownArrow.addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        // Only toggle on mobile
+        if (window.innerWidth <= 900) {
+          servicesDropdown.classList.toggle('open');
+        }
+      });
+    }
+
+    // ----- SERVICES LINK - navigates to services page -----
+    const servicesLink = document.querySelector('#servicesDropdown > a');
+    if (servicesLink) {
+      servicesLink.addEventListener('click', function(e) {
+        // On mobile, if the dropdown is open, close it and navigate
+        if (window.innerWidth <= 900) {
+          if (servicesDropdown.classList.contains('open')) {
+            servicesDropdown.classList.remove('open');
+          }
+          // Allow navigation to proceed
+          return true;
+        }
+        // On desktop, allow navigation
+        return true;
+      });
+    }
+
+    // ----- CLOSE DROPDOWN WHEN CLICKING OUTSIDE -----
+    document.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900) {
+        const dropdown = document.getElementById('servicesDropdown');
+        const isClickInside = dropdown?.contains(e.target);
+        if (!isClickInside && dropdown) {
+          dropdown.classList.remove('open');
+        }
+      }
+    });
+
+    // ----- SEARCH & USER ICON ALERTS -----
+    document.getElementById('searchIcon')?.addEventListener('click', () => alert('🔍 Search functionality coming soon.'));
+    document.getElementById('userIcon')?.addEventListener('click', () => alert('👤 Member area coming soon.'));
+  </script>
+</body>
+</html>

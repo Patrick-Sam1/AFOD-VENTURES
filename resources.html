@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources - AFOD VENTURES</title>
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="./images/logo image.jpg">
+  <style>
+    /* ----- RESOURCES PAGE SPECIFIC STYLES ----- */
+
+    /* Resources Hero */
+    .resources-hero {
+      background: linear-gradient(135deg, #1e4b4a 0%, #2a5f5e 100%);
+      color: #fff;
+      padding: 80px 0 60px;
+      border-radius: 0 0 40px 40px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .resources-hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .resources-hero h1 span {
+      color: #d9b382;
+    }
+    .resources-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 40px 0 24px;
+    }
+    .section-header h2 {
+      font-size: 1.8rem;
+      color: #0f3b3a;
+      font-weight: 600;
+    }
+    .section-header i {
+      font-size: 1.8rem;
+      color: #b68a5c;
+    }
+    .section-header .line {
+      flex: 1;
+      height: 2px;
+      background: #eae5db;
+    }
+
+    /* Featured Guides Grid */
+    .guides-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+    .guide-item {
+      background: #fff;
+      border-radius: 20px;
+      padding: 24px 22px;
+      border: 1px solid #eae5db;
+      transition: 0.25s;
+      cursor: pointer;
+    }
+    .guide-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      border-color: #b68a5c;
+    }
+    .guide-item h4 {
+      color: #0f3b3a;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+    .guide-item p {
+      color: #4d6360;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* Latest Articles - with images */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 20px;
+    }
+    .article-item {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #eae5db;
+      transition: 0.25s;
+    }
+    .article-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      border-color: #b68a5c;
+    }
+    .article-item .article-image {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background: #d9d2c5;
+    }
+    .article-item .article-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+    .article-item:hover .article-image img {
+      transform: scale(1.03);
+    }
+    .article-item .article-content {
+      padding: 20px 22px 26px;
+    }
+    .article-item .article-content h4 {
+      color: #0f3b3a;
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+    .article-item .article-content p {
+      color: #4d6360;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .article-item .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      color: #b68a5c;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .article-item .read-more:hover {
+      color: #0f3b3a;
+    }
+
+    /* Farming Tips - Same as index.html (circular image top-left) */
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin: 20px 0 30px;
+    }
+    .tip-item {
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px 24px;
+      border-left: 6px solid #b68a5c;
+      border: 1px solid #eae5db;
+      border-left-width: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: 0.2s;
+    }
+    .tip-item:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+    .tip-item .tip-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      margin-top: 2px;
+      border: 2px solid #e8e2d7;
+    }
+    .tip-item .tip-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .tip-item .tip-content {
+      flex: 1;
+    }
+    .tip-item .tip-content h4 {
+      color: #0f3b3a;
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+    .tip-item .tip-content p {
+      color: #4d6360;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Seasonal Calendar */
+    .calendar-section {
+      background: #fff;
+      border-radius: 24px;
+      border: 1px solid #eae5db;
+      padding: 30px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+    .calendar-section h3 {
+      color: #0f3b3a;
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+      border-left: 6px solid #b68a5c;
+      padding-left: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .calendar-section h3 img {
+      height: 28px;
+      width: auto;
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      min-width: 600px;
+    }
+    .month-card {
+      background: #f9f7f2;
+      border-radius: 16px;
+      padding: 16px 18px;
+      border: 1px solid #eae5db;
+      transition: 0.2s;
+    }
+    .month-card:hover {
+      background: #f0ece4;
+    }
+    .month-card .month-name {
+      font-weight: 700;
+      color: #0f3b3a;
+      font-size: 1.1rem;
+      border-bottom: 2px solid #b68a5c;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .month-card .month-name i {
+      color: #b68a5c;
+      font-size: 0.9rem;
+    }
+    .month-card .activity {
+      font-size: 0.85rem;
+      color: #3b5553;
+      line-height: 1.7;
+    }
+    .month-card .activity strong {
+      color: #0f3b3a;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      margin: 30px 0;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 16px;
+      margin-bottom: 12px;
+      border: 1px solid #eae5db;
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 18px 24px;
+      font-weight: 600;
+      color: #0f3b3a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      background: #fcfaf6;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+    .faq-question:hover {
+      background: #f0ece4;
+    }
+    .faq-question i {
+      color: #b68a5c;
+      transition: 0.2s;
+      font-size: 0.9rem;
+    }
+    .faq-item.open .faq-question i {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      padding: 0 24px 20px;
+      color: #4d6360;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      display: none;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+    .faq-answer strong {
+      color: #0f3b3a;
+    }
+
+    /* Contact CTA */
+    .resources-cta {
+      padding: 40px 0 60px;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, #0f3b3a 0%, #1a524f 100%);
+      color: #fff;
+      border-radius: 40px;
+      padding: 50px 40px;
+      text-align: center;
+    }
+    .cta-box h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .cta-box p {
+      opacity: 0.9;
+      font-size: 1.05rem;
+      max-width: 750px;
+      margin: 0 auto 24px;
+      line-height: 1.7;
+    }
+    .cta-box .btn-primary {
+      background: #d9b382;
+      color: #0f3b3a;
+    }
+    .cta-box .btn-primary:hover {
+      background: #e8c99e;
+    }
+
+    /* ----- DROPDOWN OVERRIDES (nav) ----- */
+    .nav-links .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-links .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #fff;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      padding: 8px 0;
+      z-index: 1000;
+      top: 100%;
+      left: 0;
+      border: 1px solid #eae5db;
+    }
+    .nav-links .dropdown-content a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      color: #2f4544;
+      border-bottom: none;
+      transition: 0.2s;
+    }
+    .nav-links .dropdown-content a:hover {
+      background: #f0ece4;
+      color: #b68a5c;
+      border-bottom: none;
+    }
+    .nav-links .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .nav-links .dropdown > a {
+      cursor: pointer;
+    }
+    .nav-links .dropdown > a i {
+      font-size: 0.7rem;
+      margin-left: 4px;
+    }
+
+    /* ----- RESPONSIVE OVERRIDES ----- */
+    @media (max-width: 900px) {
+      /* Ensure hamburger is visible */
+      .menu-toggle {
+        display: block !important;
+      }
+
+      /* Navigation links - hidden by default, shown when toggled */
+      .nav-links {
+        display: none !important;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 20px 0 10px;
+        border-top: 1px solid #eae5db;
+        margin-top: 16px;
+      }
+      .nav-links.open {
+        display: flex !important;
+      }
+
+      /* Dropdown on mobile - separate arrow click from link click */
+      .nav-links .dropdown {
+        position: relative;
+        width: 100%;
+        text-align: center;
+      }
+      .nav-links .dropdown > a {
+        display: inline-block;
+        padding: 0 4px;
+      }
+      .nav-links .dropdown > a i {
+        display: inline-block;
+        font-size: 0.7rem;
+        margin-left: 4px;
+        cursor: pointer;
+        padding: 4px 8px;
+        transition: transform 0.3s ease;
+      }
+      .nav-links .dropdown.open > a i {
+        transform: rotate(180deg);
+      }
+      .nav-links .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding: 0 0 0 16px;
+        background: transparent;
+        display: none;
+        width: 100%;
+      }
+      .nav-links .dropdown.open .dropdown-content {
+        display: block;
+      }
+      .nav-links .dropdown-content a {
+        color: #2f4544;
+        padding: 6px 0;
+        text-align: center;
+      }
+      .nav-links .dropdown-content a:hover {
+        background: transparent;
+        color: #b68a5c;
+      }
+
+      .resources-hero h1 {
+        font-size: 2.4rem;
+      }
+      .cta-box h2 {
+        font-size: 1.6rem;
+      }
+      .section-header h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .resources-hero h1 {
+        font-size: 2rem;
+      }
+      .resources-hero p {
+        font-size: 1rem;
+      }
+      .cta-box {
+        padding: 32px 20px;
+      }
+      .cta-box h2 {
+        font-size: 1.3rem;
+      }
+      .cta-box p {
+        font-size: 0.95rem;
+      }
+      .calendar-section {
+        padding: 18px;
+      }
+      .calendar-grid {
+        min-width: 400px;
+      }
+      .faq-question {
+        font-size: 0.9rem;
+        padding: 14px 18px;
+      }
+      .faq-answer {
+        font-size: 0.88rem;
+        padding: 0 18px 16px;
+      }
+      .guides-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .tips-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+      .tip-item {
+        padding: 16px 18px;
+        gap: 12px;
+      }
+      .tip-item .tip-image {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .guides-grid {
+        grid-template-columns: 1fr;
+      }
+      .tips-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="contact-info">
+        <span><i class="fas fa-phone-alt"></i> +234 911 0868 557</span>
+        <span><i class="fas fa-envelope"></i> kinfeaina26@gmail.com</span>
+        <span><i class="fas fa-map-marker-alt"></i> 123 Farm Road, Agropolis</span>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="./images/logo_image.jpg" alt="AFOD VENTURES Logo" />
+        <span>AFOD <span class="logo-highlight">VENTURES</span></span>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="nav-links" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <div class="dropdown" id="servicesDropdown">
+          <a href="services.html">Services <i class="fas fa-chevron-down" id="dropdownArrow"></i></a>
+          <div class="dropdown-content">
+            <a href="crop.html">Crops</a>
+            <a href="poultry.html">Poultry</a>
+          </div>
+        </div>
+        <a href="resources.html" class="active">Resources</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <i class="fas fa-search" id="searchIcon"></i>
+        <i class="fas fa-user-circle" id="userIcon"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- RESOURCES HERO -->
+  <section class="resources-hero">
+    <div class="container">
+      <h1>Farming <span>Resources</span></h1>
+      <p>Your complete library of farming guides, tips, seasonal calendars, and expert answers to help you succeed in agriculture.</p>
+    </div>
+  </section>
+
+  <!-- FEATURED GUIDES -->
+  <div class="container">
+    <div class="section-header">
+      <i class="fas fa-book-open"></i>
+      <h2>Featured Farming Guides</h2>
+      <span class="line"></span>
+    </div>
+    <p style="color: #4d6360; margin-bottom: 20px; font-size: 1.05rem;">
+      Our featured guides provide comprehensive, step-by-step instructions for key farming activities. Each guide is designed to give you practical, actionable knowledge that you can apply directly on your farm. Whether you're a beginner or an experienced farmer, these resources will help you make informed decisions and improve your farming practices.
+    </p>
+    <div class="guides-grid">
+      <div class="guide-item">
+        <h4>Crop Planting Guide</h4>
+        <p>Learn the essentials of planting crops from land preparation to harvest. Covers soil testing, seed selection, spacing, and timing for optimal yields.</p>
+      </div>
+      <div class="guide-item">
+        <h4>Poultry Farming Guide</h4>
+        <p>Complete guide to raising healthy poultry. Includes housing, feeding, vaccination, and management for broilers, layers, and local chickens.</p>
+      </div>
+      <div class="guide-item">
+        <h4>Soil Testing Basics</h4>
+        <p>Understand soil composition, pH levels, and nutrient deficiencies. Learn how to collect soil samples and interpret results for better fertilization.</p>
+      </div>
+      <div class="guide-item">
+        <h4>Crop Rotation Techniques</h4>
+        <p>Discover how rotating crops improves soil fertility, reduces pest pressure, and increases overall farm productivity. Includes rotation schedules.</p>
+      </div>
+      <div class="guide-item">
+        <h4>Pest &amp; Disease Management</h4>
+        <p>Integrated pest management strategies for common crop pests and diseases. Learn prevention, monitoring, and control methods.</p>
+      </div>
+      <div class="guide-item">
+        <h4>Irrigation Best Practices</h4>
+        <p>Efficient water management techniques including drip irrigation, sprinkler systems, and rainwater harvesting for sustainable farming.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LATEST ARTICLES -->
+  <div class="container">
+    <div class="section-header">
+      <i class="fas fa-newspaper"></i>
+      <h2>Latest Articles</h2>
+      <span class="line"></span>
+    </div>
+    <p style="color: #4d6360; margin-bottom: 20px; font-size: 1.05rem;">
+      Stay informed with our latest articles covering practical farming techniques, seasonal advice, and success stories from farmers who have transformed their agricultural practices. Each article is written by experts and designed to provide valuable insights that you can implement on your farm today.
+    </p>
+    <div class="articles-grid">
+      <div class="article-item">
+        <div class="article-image"><img src="./images/latest article 1.jpg" alt="Succession Sowing" /></div>
+        <div class="article-content">
+          <h4>Succession Sowing for Maximum Yield</h4>
+          <p>Learn how continuous sowing throughout the season can significantly boost your crop yields and farm revenue. Discover timing strategies and crop selection tips.</p>
+        </div>
+      </div>
+      <div class="article-item">
+        <div class="article-image"><img src="./images/latest article 2.jpg" alt="Tomato Seeds" /></div>
+        <div class="article-content">
+          <h4>Extra Tricks for Tomato Seeds</h4>
+          <p>Proven techniques for starting tomato seeds that produce abundant fruit. Covers germination tips, transplanting, and early care for healthy plants.</p>
+        </div>
+      </div>
+      <div class="article-item">
+        <div class="article-image"><img src="./images/farming tip 2.jpg" alt="Layer Management" /></div>
+        <div class="article-content">
+          <h4>Layer Management &amp; Lighting</h4>
+          <p>Optimize egg production with proper lighting schedules, nutrition, and health management. Learn how to maximize layer productivity throughout the laying cycle.</p>
+        </div>
+      </div>
+      <div class="article-item">
+        <div class="article-image"><img src="./images/solar power.jpg" alt="Climate-Smart Farming" /></div>
+        <div class="article-content">
+          <h4>Climate-Smart Farming Practices</h4>
+          <p>Adapt your farming methods to changing climate conditions. Explore conservation agriculture, water-efficient techniques, and sustainable land management.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FARMING TIPS - Same style as index.html -->
+  <div class="container">
+    <div class="section-header">
+      <i class="fas fa-lightbulb"></i>
+      <h2>Farming Tips of the Week</h2>
+      <span class="line"></span>
+    </div>
+    <p style="color: #4d6360; margin-bottom: 20px; font-size: 1.05rem;">
+      Quick, actionable tips to improve your farming practices. These tips are curated from experienced farmers and agricultural experts to help you overcome common challenges and maximize your farm's potential.
+    </p>
+    <div class="tips-grid">
+      <div class="tip-item">
+        <div class="tip-image"><img src="./images/soil fertility.jpg" alt="Soil Fertility" /></div>
+        <div class="tip-content">
+          <h4>Improve Soil Fertility Naturally</h4>
+          <p>Use organic matter, compost, and green manure to boost soil health. Add crop residues and practice cover cropping for long-term fertility.</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-image"><img src="./images/farming tip 2.jpg" alt="Poultry Lighting" /></div>
+        <div class="tip-content">
+          <h4>Maintain Proper Poultry Lighting</h4>
+          <p>Provide 16 hours of light daily for layers to maintain consistent egg production. Use timers for automated lighting schedules.</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-image"><img src="./images/farming tip 1.jpg" alt="Irrigation" /></div>
+        <div class="tip-content">
+          <h4>Save Water with Efficient Irrigation</h4>
+          <p>Use drip irrigation and rainwater harvesting to reduce water waste. Mulch around plants to retain soil moisture and reduce evaporation.</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-image"><img src="./images/farming tip 3.jpg" alt="Crop Rotation" /></div>
+        <div class="tip-content">
+          <h4>Rotate Crops for Healthier Yields</h4>
+          <p>Alternate between legumes and cereals to maintain soil nutrients. Rotate crops annually to break pest and disease cycles.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEASONAL CALENDAR -->
+  <div class="container">
+    <div class="section-header">
+      <i class="fas fa-calendar-alt"></i>
+      <h2>Seasonal Farming Calendar</h2>
+      <span class="line"></span>
+    </div>
+    <p style="color: #4d6360; margin-bottom: 20px; font-size: 1.05rem;">
+      Plan your farming activities throughout the year with our comprehensive seasonal calendar. This guide provides month-by-month recommendations for crop planting, harvesting, and poultry management to help you stay organized and maximize productivity.
+    </p>
+    <div class="calendar-section">
+      <h3><i class="fas fa-seedling" style="color: #b68a5c; margin-right: 10px;"></i> Crop Calendar</h3>
+      <div class="calendar-grid">
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> January</div>
+          <div class="activity"><strong>Plant:</strong> Tomatoes, Peppers, Cucumbers, Onions</div>
+          <div class="activity"><strong>Harvest:</strong> Late maize, Cassava, Yam</div>
+          <div class="activity"><strong>Tip:</strong> Prepare land for dry season irrigation</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> February</div>
+          <div class="activity"><strong>Plant:</strong> Maize (early), Rice (nursery), Beans</div>
+          <div class="activity"><strong>Harvest:</strong> Tomatoes, Peppers, Onions</div>
+          <div class="activity"><strong>Tip:</strong> Start nursery preparation for rainy season</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> March</div>
+          <div class="activity"><strong>Plant:</strong> Maize, Rice (transplant), Cassava</div>
+          <div class="activity"><strong>Harvest:</strong> Early maize, Beans, Vegetables</div>
+          <div class="activity"><strong>Tip:</strong> Apply pre-planting fertilizers</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> April</div>
+          <div class="activity"><strong>Plant:</strong> Rice, Soybeans, Groundnuts, Yam</div>
+          <div class="activity"><strong>Harvest:</strong> Maize, Cassava, Cocoyam</div>
+          <div class="activity"><strong>Tip:</strong> Weed control and pest monitoring</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> May</div>
+          <div class="activity"><strong>Plant:</strong> Late maize, Beans, Eggplant</div>
+          <div class="activity"><strong>Harvest:</strong> Rice, Soybeans, Groundnuts</div>
+          <div class="activity"><strong>Tip:</strong> Side-dress nitrogen fertilizers</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> June</div>
+          <div class="activity"><strong>Plant:</strong> Cassava, Yam, Vegetables</div>
+          <div class="activity"><strong>Harvest:</strong> Late maize, Beans, Onions</div>
+          <div class="activity"><strong>Tip:</strong> Monitor for pests and diseases</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> July</div>
+          <div class="activity"><strong>Plant:</strong> Rice, Soybeans, Groundnuts</div>
+          <div class="activity"><strong>Harvest:</strong> Cassava, Cocoyam, Vegetables</div>
+          <div class="activity"><strong>Tip:</strong> Water management for dry season</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> August</div>
+          <div class="activity"><strong>Plant:</strong> Maize, Beans, Tomato (nursery)</div>
+          <div class="activity"><strong>Harvest:</strong> Rice, Soybeans, Groundnuts</div>
+          <div class="activity"><strong>Tip:</strong> Prepare land for dry season planting</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> September</div>
+          <div class="activity"><strong>Plant:</strong> Cassava, Yam, Vegetables</div>
+          <div class="activity"><strong>Harvest:</strong> Maize, Beans, Tomatoes</div>
+          <div class="activity"><strong>Tip:</strong> Apply post-harvest treatments</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> October</div>
+          <div class="activity"><strong>Plant:</strong> Rice, Onions, Peppers</div>
+          <div class="activity"><strong>Harvest:</strong> Cassava, Yam, Groundnuts</div>
+          <div class="activity"><strong>Tip:</strong> Store harvested crops properly</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> November</div>
+          <div class="activity"><strong>Plant:</strong> Maize (irrigation), Vegetables</div>
+          <div class="activity"><strong>Harvest:</strong> Rice, Onions, Tomatoes</div>
+          <div class="activity"><strong>Tip:</strong> Land preparation for next season</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> December</div>
+          <div class="activity"><strong>Plant:</strong> Tomatoes, Peppers, Cucumbers</div>
+          <div class="activity"><strong>Harvest:</strong> Cassava, Yam, Vegetables</div>
+          <div class="activity"><strong>Tip:</strong> Plan for the upcoming farming season</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calendar-section">
+        <h3>
+            <i class="fas fa-dove" style="color: #b68a5c; margin-right: 10px;"></i> Poultry Management Calendar
+        </h3>
+      <div class="calendar-grid">
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> January</div>
+          <div class="activity"><strong>Broilers:</strong> Start new batches, monitor growth</div>
+          <div class="activity"><strong>Layers:</strong> Maintain lighting, collect eggs</div>
+          <div class="activity"><strong>Tip:</strong> Vaccinate against Newcastle</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> February</div>
+          <div class="activity"><strong>Broilers:</strong> Marketing ready, restock chicks</div>
+          <div class="activity"><strong>Layers:</strong> Peak production period</div>
+          <div class="activity"><strong>Tip:</strong> Check feed quality regularly</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> March</div>
+          <div class="activity"><strong>Broilers:</strong> Start new cycle, house cleaning</div>
+          <div class="activity"><strong>Layers:</strong> De-worming and health checks</div>
+          <div class="activity"><strong>Tip:</strong> Maintain biosecurity protocols</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> April</div>
+          <div class="activity"><strong>Broilers:</strong> Intensive feeding management</div>
+          <div class="activity"><strong>Layers:</strong> Replace older layers</div>
+          <div class="activity"><strong>Tip:</strong> Monitor for heat stress</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> May</div>
+          <div class="activity"><strong>Broilers:</strong> Marketing, restock for next batch</div>
+          <div class="activity"><strong>Layers:</strong> Maintain lighting schedules</div>
+          <div class="activity"><strong>Tip:</strong> Check for parasites</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> June</div>
+          <div class="activity"><strong>Broilers:</strong> Start new flock, brooding phase</div>
+          <div class="activity"><strong>Layers:</strong> Vaccinate new pullets</div>
+          <div class="activity"><strong>Tip:</strong> Clean and disinfect housing</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> July</div>
+          <div class="activity"><strong>Broilers:</strong> Growth monitoring, feed adjustment</div>
+          <div class="activity"><strong>Layers:</strong> Egg collection and grading</div>
+          <div class="activity"><strong>Tip:</strong> Supplement with vitamins</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> August</div>
+          <div class="activity"><strong>Broilers:</strong> Marketing, restock for new batch</div>
+          <div class="activity"><strong>Layers:</strong> Check for molting signs</div>
+          <div class="activity"><strong>Tip:</strong> Plan for flock replacement</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> September</div>
+          <div class="activity"><strong>Broilers:</strong> Start new flock, brooding care</div>
+          <div class="activity"><strong>Layers:</strong> Maintain production levels</div>
+          <div class="activity"><strong>Tip:</strong> Vaccination booster shots</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> October</div>
+          <div class="activity"><strong>Broilers:</strong> Growth phase management</div>
+          <div class="activity"><strong>Layers:</strong> Prepare for festive demand</div>
+          <div class="activity"><strong>Tip:</strong> Biosecurity reinforcement</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> November</div>
+          <div class="activity"><strong>Broilers:</strong> Final feeding stage, marketing</div>
+          <div class="activity"><strong>Layers:</strong> Peak festive season production</div>
+          <div class="activity"><strong>Tip:</strong> Monitor for diseases</div>
+        </div>
+        <div class="month-card">
+          <div class="month-name"><i class="fas fa-calendar-alt"></i> December</div>
+          <div class="activity"><strong>Broilers:</strong> Full marketing cycle</div>
+          <div class="activity"><strong>Layers:</strong> High egg demand period</div>
+          <div class="activity"><strong>Tip:</strong> Plan for next year's production</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ SECTION -->
+  <div class="container">
+    <div class="section-header">
+      <i class="fas fa-question-circle"></i>
+      <h2>Frequently Asked Questions</h2>
+      <span class="line"></span>
+    </div>
+    <p style="color: #4d6360; margin-bottom: 24px; font-size: 1.05rem;">
+      Find answers to the most common questions about crop farming, poultry rearing, and general agricultural practices. If you have additional questions, don't hesitate to contact our team for expert guidance.
+    </p>
+    <div class="faq-section">
+      <div class="faq-item open">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Which crops grow best in my region?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <strong>Answer:</strong> The best crops depend on your specific climate zone, soil type, and rainfall patterns. Generally, <strong>maize, cassava, and rice</strong> thrive in tropical regions with adequate rainfall. <strong>Tomatoes, peppers, and onions</strong> do well in warmer areas with access to irrigation. For specific recommendations, consider conducting a soil test and consulting local agricultural extension officers who understand your region's microclimate.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How often should poultry be vaccinated?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <strong>Answer:</strong> Poultry vaccination schedules depend on the specific diseases in your area. Generally, <strong>Newcastle disease</strong> vaccines are given at 1-2 weeks, 4-6 weeks, and then every 2-3 months. <strong>Gumboro disease</strong> vaccines are typically given at 2-3 weeks and 8-10 weeks. <strong>Fowl Pox</strong> vaccines are administered at 8-12 weeks. Always consult a veterinarian to develop a vaccination program tailored to your flock and local disease pressures.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do I improve soil fertility naturally?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <strong>Answer:</strong> Improving soil fertility naturally involves multiple approaches: <strong>1) Add organic matter</strong> - incorporate compost, green manure, and crop residues. <strong>2) Practice crop rotation</strong> - alternate legumes with cereals to fix nitrogen. <strong>3) Use cover crops</strong> - plant during off-seasons to prevent erosion and add nutrients. <strong>4) Apply manure</strong> - well-decomposed animal manure improves soil structure. <strong>5) Practice conservation tillage</strong> - minimize soil disturbance to preserve beneficial microorganisms.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What irrigation method should I use?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <strong>Answer:</strong> The best irrigation method depends on your crop, water availability, and farm size. <strong>Drip irrigation</strong> is ideal for vegetables, tomatoes, and high-value crops as it delivers water directly to plant roots with minimal waste. <strong>Sprinkler systems</strong> work well for field crops like maize and rice. <strong>Flood irrigation</strong> is suitable for rice and low-value crops but has high water usage. For small farms, <strong>manual watering</strong> combined with mulching is a cost-effective option.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do I prevent common poultry diseases?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <strong>Answer:</strong> Preventing poultry diseases requires a comprehensive approach: <strong>1) Vaccination</strong> - follow a strict vaccination schedule. <strong>2) Biosecurity</strong> - restrict visitors, disinfect equipment, and quarantine new birds. <strong>3) Good housing</strong> - ensure proper ventilation, space, and cleanliness. <strong>4) Nutrition</strong> - provide balanced feed with essential vitamins and minerals. <strong>5) Regular monitoring</strong> - observe birds daily for signs of illness and consult a veterinarian promptly when issues arise.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How can I maximize my crop yield?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <strong>Answer:</strong> Maximizing crop yield involves several key practices: <strong>1) Soil preparation</strong> - test and amend soil for optimal fertility. <strong>2) Seed selection</strong> - use high-yielding, disease-resistant varieties. <strong>3) Proper spacing</strong> - plant at recommended densities to avoid competition. <strong>4) Timely planting</strong> - align planting with seasonal rainfall patterns. <strong>5) Fertilization</strong> - apply the right type and amount of fertilizer at the correct growth stages. <strong>6) Pest and disease management</strong> - monitor regularly and take preventive measures. <strong>7) Irrigation</strong> - provide adequate water, especially during critical growth stages.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT CTA -->
+  <section class="resources-cta">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Have Questions About Your Farm?</h2>
+        <p>
+          Need professional agricultural guidance? Our team is ready to provide practical solutions tailored to your farming needs. Whether you're starting a new farm or looking to improve your current operations, AFOD VENTURES is here to support your success with expert advice and resources.
+        </p>
+        <a href="contact.html" class="btn-primary">Contact Our Team <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <img src="./images/logo_image.jpg" alt="AFOD VENTURES Logo" />
+            <span>AFOD <small>VENTURES</small></span>
+          </div>
+          <p style="color: #bccbc4; font-size: 0.9rem;">Growing Knowledge, Growing Agriculture.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Agricultural Services</a>
+          <a href="resources.html">Resources</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div>
+          <h4>Learning</h4>
+          <a href="crop.html">Crop Farming</a>
+          <a href="poultry.html">Poultry</a>
+          <a href="resources.html">Resources</a>
+          <a href="contact.html">For Enquiry</a>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AFOD VENTURES. Built for modern farmers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ----- FAQ Toggle -----
+    function toggleFaq(element) {
+      const item = element.closest('.faq-item');
+      item.classList.toggle('open');
+    }
+
+    // ----- HAMBURGER MENU TOGGLE -----
+    document.querySelector('.menu-toggle')?.addEventListener('click', function() {
+      const nav = document.getElementById('mainNav');
+      nav.classList.toggle('open');
+    });
+
+    // ----- MOBILE DROPDOWN TOGGLE (click on arrow toggles open/close) -----
+    const dropdownArrow = document.getElementById('dropdownArrow');
+    const servicesDropdown = document.getElementById('servicesDropdown');
+
+    if (dropdownArrow) {
+      dropdownArrow.addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        // Only toggle on mobile
+        if (window.innerWidth <= 900) {
+          servicesDropdown.classList.toggle('open');
+        }
+      });
+    }
+
+    // ----- SERVICES LINK - navigates to services page -----
+    const servicesLink = document.querySelector('#servicesDropdown > a');
+    if (servicesLink) {
+      servicesLink.addEventListener('click', function(e) {
+        // On mobile, if the dropdown is open, close it and navigate
+        if (window.innerWidth <= 900) {
+          if (servicesDropdown.classList.contains('open')) {
+            servicesDropdown.classList.remove('open');
+          }
+          // Allow navigation to proceed
+          return true;
+        }
+        // On desktop, allow navigation
+        return true;
+      });
+    }
+
+    // ----- CLOSE DROPDOWN WHEN CLICKING OUTSIDE -----
+    document.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900) {
+        const dropdown = document.getElementById('servicesDropdown');
+        const isClickInside = dropdown?.contains(e.target);
+        if (!isClickInside && dropdown) {
+          dropdown.classList.remove('open');
+        }
+      }
+    });
+
+    // ----- SEARCH & USER ICON ALERTS -----
+    document.getElementById('searchIcon')?.addEventListener('click', () => alert('🔍 Search functionality coming soon.'));
+    document.getElementById('userIcon')?.addEventListener('click', () => alert('👤 Member area coming soon.'));
+  </script>
+</body>
+</html>
